@@ -49,13 +49,20 @@ typedef struct
     int ready;
 } scd41_cal_t;
 
+typedef struct
+{
+    uint16_t co2;
+    float temperature;
+    float humidity;
+} scd41_data_t;
+
 static EventGroupHandle_t s_wifi_event_group;
 static int s_retry_num = 0;
 
 static uint8_t s_led_state = 0;
 static uint16_t temp_off = 0;
 
-//static QueueHandle_t sensor_queue;
+static QueueHandle_t sensor_queue;
 //static QueueHandle_t tx_queue;
 //static QueueHandle_t tx_queue;
 
@@ -398,6 +405,13 @@ void scd41_read_task(void *pvParameters)
             float temperature = ((float)((data[3] << 8) | data[4])) / 65535.0f * 175 - 45 - temp_off;
             float humidity = ((float)((data[6] << 8) | data[7])) / 65535.0f * 100;
 
+            scd41_data_t readings;
+            readings.co2 = co2;
+            readings.temperature = temperature;
+            readings.humidity = humidity;
+
+            xQueueSend(sensor_queue, (void*)&readings, (TickType_t)0);
+
             ESP_LOGI(TAG, "CO2: %d ppm, Temperature: %.2f °C, Humidity: %.2f%%", co2, temperature, humidity);
         }
         else
@@ -412,6 +426,8 @@ void scd41_read_task(void *pvParameters)
 
 void app_main(void) 
 {
+    const char* TAG = "monotub";
+
     //Init nvs for wifi configuration
     esp_err_t ret = nvs_flash_init();
     if(ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
@@ -420,6 +436,14 @@ void app_main(void)
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK(ret);
+
+    //placeholders for wifi rx/tx queues when I add web interface.
+    //rx_queue = xQueueCreate(5, 200*sizeof(char));
+    //tx_queue = xQueueCreate(10, sizeof(char));
+
+    //Queue to hold 30 seconds worth of sensor mesaurements.
+    //Most recent used for calculations but any older sampels will be logged.
+    sensor_queue = xQueueCreate(6, sizeof(scd41_data_t));
 
     //configure periperals and interfaces.
     wifi_init_sta();
@@ -440,4 +464,19 @@ void app_main(void)
     vTaskDelete(scd41_cal_h); //remove calibration task from run queue as it's no longer needed
     //start measurement task
     xTaskCreate(&scd41_read_task, "scd41_read_task", 4096, (void*)&dev_handle, 5, &scd41_read_task_h);
+
+    //Control loop
+    while(1)
+    {
+        uint8_t num_readings = 0;
+        scd41_data_t measurements[6];
+
+        while(xQueueReceive(sensor_queue, measurements+num_readings, (TickType_t) 1))
+        {
+            ESP_LOGI(TAG, "sensor_queue[%d] read out.", num_readings);
+            ESP_LOGI(TAG, "CO2: %d ppm, Temperature: %.2f °C, Humidity: %.2f%%", measurements[num_readings].co2,
+                     measurements[num_readings].temperature, measurements[num_readings].humidity);
+            num_readings++;
+        }
+    }
 }
