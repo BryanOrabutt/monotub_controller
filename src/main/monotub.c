@@ -218,7 +218,7 @@ void wifi_init_sta(void)
 /* 1 Hz heartbeat LED */
 static void blink_task(void *pvParameter)
 {
-    const char* TAG = "blink";
+    const char* TAG = "heartbeat";
     /* Set the GPIO level according to the state (LOW or HIGH)*/
     while(1)
     {
@@ -410,7 +410,7 @@ void scd41_read_task(void *pvParameters)
             readings.temperature = temperature;
             readings.humidity = humidity;
 
-            xQueueSend(sensor_queue, (void*)&readings, (TickType_t)0);
+            xQueueSendToFront(sensor_queue, (void*)&readings, (TickType_t)0);
 
             ESP_LOGI(TAG, "CO2: %d ppm, Temperature: %.2f °C, Humidity: %.2f%%", co2, temperature, humidity);
         }
@@ -478,5 +478,7 @@ void app_main(void)
                      measurements[num_readings].temperature, measurements[num_readings].humidity);
             num_readings++;
         }
+
+        vTaskDelay(6*SCD41_MEASURE_PERIOD_MS / portTICK_PERIOD_MS);
     }
 }
