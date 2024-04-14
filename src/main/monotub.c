@@ -42,6 +42,8 @@
 #define CRC8_POLYNOMIAL 0x31
 #define CRC8_INIT 0xff
 
+#define FAN_GPIO 19
+#define HUMIDIFIER_GPIO 18
 
 typedef struct
 {
@@ -61,6 +63,14 @@ static int s_retry_num = 0;
 
 static uint8_t s_led_state = 0;
 static uint16_t temp_off = 0;
+
+//Set points
+static float humidity_sp = 90.0;
+static float co2_sp = 900;
+
+//Size of hysteretic windows
+static float humidity_window = 5.0;
+static uint16_t co2_window = 50;
 
 static QueueHandle_t sensor_queue;
 //static QueueHandle_t tx_queue;
@@ -216,7 +226,7 @@ void wifi_init_sta(void)
 }
 
 /* 1 Hz heartbeat LED */
-static void blink_task(void *pvParameter)
+static void blink_task(void *pvParameters)
 {
     const char* TAG = "heartbeat";
     /* Set the GPIO level according to the state (LOW or HIGH)*/
@@ -229,14 +239,20 @@ static void blink_task(void *pvParameter)
     }
 }
 
-/* GPIO configuration for on board LED */
-static void configure_led(void)
+/* GPIO configuration for gpio pins */
+static void configure_gpio(void)
 {
-    const char* TAG = "led-conf";
-    ESP_LOGI(TAG, "Configured to blink GPIO LED!");
+    const char* TAG = "gpio-conf";
+    ESP_LOGI(TAG, "Configuring GPIO outputs for LED, fan, and humidifier!");
     gpio_reset_pin(BLINK_GPIO);
     /* Set the GPIO as a push/pull output */
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
+
+    gpio_reset_pin(FAN_GPIO);
+    gpio_set_direction(FAN_GPIO, GPIO_MODE_OUTPUT);
+
+    gpio_reset_pin(HUMIDIFIER_GPIO);
+    gpio_set_direction(HUMIDIFIER_GPIO, GPIO_MODE_OUTPUT);
 }
 
 
@@ -447,7 +463,7 @@ void app_main(void)
 
     //configure periperals and interfaces.
     wifi_init_sta();
-    configure_led();
+    configure_gpio();
     i2c_master_bus_handle_t* bus_handle = configure_i2c_master();
 
     i2c_master_dev_handle_t dev_handle;
@@ -477,6 +493,33 @@ void app_main(void)
             ESP_LOGI(TAG, "CO2: %d ppm, Temperature: %.2f °C, Humidity: %.2f%%", measurements[num_readings].co2,
                      measurements[num_readings].temperature, measurements[num_readings].humidity);
             num_readings++;
+        }
+
+        float current_humidty = measurements[0].humidity;
+        uint16_t current_co2 = measurements[0].co2;
+
+        if(current_humidty > (humidity_sp + humidity_window/2))
+        {
+            ESP_LOGI(TAG, "Current humidity = %f%% > %f%%. Turning humidifier OFF.", current_humidty, humidity_sp + humidity_window/2);
+            gpio_set_level(HUMIDIFIER_GPIO, 0);
+
+        }
+        else if(current_humidty < (humidity_sp - humidity_window/2))
+        {
+            ESP_LOGI(TAG, "Current humidity = %f%% < %f%%. Turning humidifier ON.", current_humidty, humidity_sp - humidity_window/2);
+            gpio_set_level(HUMIDIFIER_GPIO, 1);
+        }
+
+        if(current_co2 < (co2_sp + co2_window/2))
+        {
+            ESP_LOGI(TAG, "Current co2 = %d ppm < %d ppm. Turning fan OFF.", current_co2, current_co2 + co2_window/2);
+            gpio_set_level(FAN_GPIO, 0);
+
+        }
+        else if(current_co2 > (co2_sp - co2_window/2))
+        {
+            ESP_LOGI(TAG, "Current co2 = %d ppm > %d ppm. Turning fan ON.", current_co2, current_co2 - co2_window/2);
+            gpio_set_level(FAN_GPIO, 1);
         }
 
         vTaskDelay(6*SCD41_MEASURE_PERIOD_MS / portTICK_PERIOD_MS);
