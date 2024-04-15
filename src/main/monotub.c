@@ -66,10 +66,10 @@ static uint16_t temp_off = 0;
 
 //Set points
 static float humidity_sp = 90.0;
-static float co2_sp = 900;
+static uint16_t co2_sp = 900;
 
 //Size of hysteretic windows
-static float humidity_window = 5.0;
+static float humidity_window = 10.0;
 static uint16_t co2_window = 50;
 
 static QueueHandle_t sensor_queue;
@@ -512,13 +512,13 @@ void app_main(void)
 
         if(current_co2 < (co2_sp + co2_window/2))
         {
-            ESP_LOGI(TAG, "Current co2 = %d ppm < %d ppm. Turning fan OFF.", current_co2, current_co2 + co2_window/2);
+            ESP_LOGI(TAG, "Current co2 = %d ppm < %d ppm. Turning fan OFF.", current_co2, co2_sp + co2_window/2);
             gpio_set_level(FAN_GPIO, 0);
 
         }
         else if(current_co2 > (co2_sp - co2_window/2))
         {
-            ESP_LOGI(TAG, "Current co2 = %d ppm > %d ppm. Turning fan ON.", current_co2, current_co2 - co2_window/2);
+            ESP_LOGI(TAG, "Current co2 = %d ppm > %d ppm. Turning fan ON.", current_co2, co2_sp - co2_window/2);
             gpio_set_level(FAN_GPIO, 1);
         }
 
