@@ -4275,13 +4275,13 @@
 		(uuid "b80242e6-5495-4cdd-b02a-2f620c1cf952")
 	)
 	(junction
-		(at 210.82 27.94)
+		(at 210.82 26.67)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b9469135-cd84-4c2f-af64-51b943fc14e7")
 	)
 	(junction
-		(at 213.36 35.56)
+		(at 213.36 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c7c9acdd-c09d-4188-9ca6-873da6f602fb")
@@ -4650,7 +4650,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 48.26) (xy 213.36 53.34)
+			(xy 213.36 46.99) (xy 213.36 52.07)
 		)
 		(stroke
 			(width 0)
@@ -4750,7 +4750,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 27.94) (xy 210.82 27.94)
+			(xy 205.74 26.67) (xy 210.82 26.67)
 		)
 		(stroke
 			(width 0)
@@ -4870,7 +4870,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 43.18) (xy 205.74 43.18)
+			(xy 199.39 41.91) (xy 205.74 41.91)
 		)
 		(stroke
 			(width 0)
@@ -5090,7 +5090,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 35.56) (xy 213.36 38.1)
+			(xy 213.36 34.29) (xy 213.36 36.83)
 		)
 		(stroke
 			(width 0)
@@ -5310,7 +5310,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 35.56) (xy 213.36 35.56)
+			(xy 205.74 34.29) (xy 213.36 34.29)
 		)
 		(stroke
 			(width 0)
@@ -5440,7 +5440,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 27.94) (xy 210.82 29.21)
+			(xy 210.82 26.67) (xy 210.82 27.94)
 		)
 		(stroke
 			(width 0)
@@ -5510,7 +5510,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 29.21) (xy 210.82 29.21)
+			(xy 213.36 27.94) (xy 210.82 27.94)
 		)
 		(stroke
 			(width 0)
@@ -5640,7 +5640,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 31.75) (xy 213.36 35.56)
+			(xy 213.36 30.48) (xy 213.36 34.29)
 		)
 		(stroke
 			(width 0)
@@ -5710,7 +5710,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 26.67) (xy 210.82 27.94)
+			(xy 210.82 25.4) (xy 210.82 26.67)
 		)
 		(stroke
 			(width 0)
@@ -5790,7 +5790,7 @@
 		(uuid "19cdb344-d7e1-47e5-9d5e-ec23cfe63c4f")
 	)
 	(label "FAN"
-		(at 199.39 43.18 0)
+		(at 199.39 41.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9615,7 +9615,7 @@
 	)
 	(symbol
 		(lib_id "power:+24V")
-		(at 210.82 26.67 0)
+		(at 210.82 25.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9624,7 +9624,7 @@
 		(fields_autoplaced yes)
 		(uuid "919b38fe-b796-40fc-890f-986363d06d98")
 		(property "Reference" "#PWR024"
-			(at 210.82 30.48 0)
+			(at 210.82 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9633,7 +9633,7 @@
 			)
 		)
 		(property "Value" "+24V"
-			(at 210.82 21.59 0)
+			(at 210.82 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9641,7 +9641,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 210.82 26.67 0)
+			(at 210.82 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9650,7 +9650,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 210.82 26.67 0)
+			(at 210.82 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9659,7 +9659,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 210.82 26.67 0)
+			(at 210.82 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9751,7 +9751,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 213.36 53.34 0)
+		(at 213.36 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9760,7 +9760,7 @@
 		(fields_autoplaced yes)
 		(uuid "9384068c-d945-4922-903e-807450110e8d")
 		(property "Reference" "#PWR023"
-			(at 213.36 59.69 0)
+			(at 213.36 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9769,7 +9769,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 58.42 0)
+			(at 213.36 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9777,7 +9777,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 213.36 53.34 0)
+			(at 213.36 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9786,7 +9786,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.36 53.34 0)
+			(at 213.36 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9795,7 +9795,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 213.36 53.34 0)
+			(at 213.36 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10223,7 +10223,7 @@
 	)
 	(symbol
 		(lib_id "dk_Rectangular-Connectors-Headers-Male-Pins:B2B-PH-SM4-TB_LF__SN_")
-		(at 215.9 31.75 90)
+		(at 215.9 30.48 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10232,7 +10232,7 @@
 		(fields_autoplaced yes)
 		(uuid "ab5c169f-3ebb-4ba6-87aa-ae0bd0fb4e81")
 		(property "Reference" "J4"
-			(at 219.71 29.2099 90)
+			(at 219.71 27.9399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10241,7 +10241,7 @@
 			)
 		)
 		(property "Value" "FAN"
-			(at 219.71 31.7499 90)
+			(at 219.71 30.4799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10250,7 +10250,7 @@
 			)
 		)
 		(property "Footprint" "digikey-footprints:PinHeader_1x2_P2mm"
-			(at 210.82 26.67 0)
+			(at 210.82 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10260,7 +10260,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
-			(at 208.28 26.67 0)
+			(at 208.28 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10270,7 +10270,7 @@
 			)
 		)
 		(property "Description" "CONN HEADER SMD 2POS 2MM"
-			(at 205.74 26.67 0)
+			(at 205.74 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10280,7 +10280,7 @@
 			)
 		)
 		(property "MPN" "B2B-PH-SM4-TB(LF)(SN)"
-			(at 203.2 26.67 0)
+			(at 203.2 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10290,7 +10290,7 @@
 			)
 		)
 		(property "Category" "Connectors, Interconnects"
-			(at 200.66 26.67 0)
+			(at 200.66 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10300,7 +10300,7 @@
 			)
 		)
 		(property "Family" "Rectangular Connectors - Headers, Male Pins"
-			(at 198.12 26.67 0)
+			(at 198.12 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10310,7 +10310,7 @@
 			)
 		)
 		(property "DK_Datasheet_Link" "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
-			(at 195.58 26.67 0)
+			(at 195.58 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10320,7 +10320,7 @@
 			)
 		)
 		(property "DK_Detail_Page" "/product-detail/en/jst-sales-america-inc/B2B-PH-SM4-TB(LF)(SN)/455-1734-1-ND/926831"
-			(at 193.04 26.67 0)
+			(at 193.04 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10330,7 +10330,7 @@
 			)
 		)
 		(property "Description_1" "CONN HEADER SMD 2POS 2MM"
-			(at 190.5 26.67 0)
+			(at 190.5 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10340,7 +10340,7 @@
 			)
 		)
 		(property "Manufacturer" "JST Sales America Inc."
-			(at 187.96 26.67 0)
+			(at 187.96 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10350,7 +10350,7 @@
 			)
 		)
 		(property "Status" "Active"
-			(at 185.42 26.67 0)
+			(at 185.42 25.4 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10376,7 +10376,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:NMOS")
-		(at 210.82 43.18 0)
+		(at 210.82 41.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10385,7 +10385,7 @@
 		(fields_autoplaced yes)
 		(uuid "b4b85cda-53a0-40d2-9378-274b68c3dc09")
 		(property "Reference" "Q1"
-			(at 217.17 41.9099 0)
+			(at 217.17 40.6399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10394,7 +10394,7 @@
 			)
 		)
 		(property "Value" "NMOS"
-			(at 217.17 44.4499 0)
+			(at 217.17 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10403,7 +10403,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 215.9 40.64 0)
+			(at 215.9 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10412,7 +10412,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
-			(at 210.82 55.88 0)
+			(at 210.82 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10421,7 +10421,7 @@
 			)
 		)
 		(property "Description" "N-MOSFET transistor, drain/source/gate"
-			(at 210.82 43.18 0)
+			(at 210.82 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10430,7 +10430,7 @@
 			)
 		)
 		(property "Sim.Device" "NMOS"
-			(at 210.82 60.325 0)
+			(at 210.82 59.055 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10439,7 +10439,7 @@
 			)
 		)
 		(property "Sim.Type" "VDMOS"
-			(at 210.82 62.23 0)
+			(at 210.82 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10448,7 +10448,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=D 2=G 3=S"
-			(at 210.82 58.42 0)
+			(at 210.82 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11144,7 +11144,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Schottky")
-		(at 205.74 31.75 90)
+		(at 205.74 30.48 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11153,7 +11153,7 @@
 		(dnp no)
 		(uuid "d71227aa-9528-40e9-b4d3-4a955161f9a4")
 		(property "Reference" "D5"
-			(at 203.2 30.1624 90)
+			(at 203.2 28.8924 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11162,7 +11162,7 @@
 			)
 		)
 		(property "Value" "D_Schottky"
-			(at 203.2 32.7024 90)
+			(at 203.2 31.4324 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11171,7 +11171,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 205.74 31.75 0)
+			(at 205.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11180,7 +11180,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 205.74 31.75 0)
+			(at 205.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11189,7 +11189,7 @@
 			)
 		)
 		(property "Description" "Schottky diode"
-			(at 205.74 31.75 0)
+			(at 205.74 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
