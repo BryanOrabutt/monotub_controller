@@ -6504,6 +6504,17 @@
 		)
 		(uuid "3c5d68ed-6242-4b8e-9cc5-700305e8aa4e")
 	)
+	(label "vdd_led"
+		(at 227.33 72.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4da1d034-56a5-4b64-9930-cfc54baaa8e9")
+	)
 	(label "FAN"
 		(at 194.31 41.91 0)
 		(fields_autoplaced yes)
