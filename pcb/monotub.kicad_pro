@@ -177,7 +177,9 @@
         }
       ],
       "track_widths": [
-        0.0
+        0.0,
+        0.5,
+        1.0
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -467,19 +469,19 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.5,
+        "clearance": 0.3,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
-        "microvia_diameter": 0.3,
+        "microvia_diameter": 0.15,
         "microvia_drill": 0.1,
         "name": "PWR",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 2.0,
-        "via_diameter": 1.0,
-        "via_drill": 0.5,
+        "track_width": 0.6,
+        "via_diameter": 0.3,
+        "via_drill": 0.15,
         "wire_width": 6
       }
     ],
