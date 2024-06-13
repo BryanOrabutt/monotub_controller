@@ -58,7 +58,34 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "drill_out_of_range|140750000|57820000|850e9e68-1789-47c2-bacf-075608a6270e|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|140750000|59220000|da5923d4-a8e9-4be9-885c-4bbeedde3f0c|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|141450000|57120000|4698c61f-8320-4dab-93de-2d7def767cfc|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|141450000|58520000|a660220c-2319-4f29-8b35-07fad6c585a5|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|141450000|59920000|1c352fd0-374e-4a79-b810-2b40849d9a45|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142125000|57820000|b5975cbe-6c84-46f2-b5d9-d2aaad7239b9|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142125000|59220000|838c204a-a386-46f4-a8c1-00105133b4f6|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142850000|57120000|6abcbaa5-5834-4a1f-a90f-6a918ef1b326|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142850000|58520000|f43a38f1-24ed-4de3-b9b3-ff95aa8c4339|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142850000|59920000|39da57e7-2343-4359-92ce-182bfe2bb6ee|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|143550000|57820000|918cac12-b5a2-4a7e-a9a8-037d3c26da67|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|143550000|59220000|a755096f-cdea-485c-b11b-be5d4f477cf3|00000000-0000-0000-0000-000000000000",
+        "silk_edge_clearance|102869999|109621998|8f76cc49-caa4-494e-b3e0-deb30a11c6d4|cd08fddc-241f-412f-b42d-b9fc2368ad70",
+        "silk_edge_clearance|102869999|87721999|8f76cc49-caa4-494e-b3e0-deb30a11c6d4|0b9ffbbb-85b2-4a54-b563-56929553f1f7",
+        "silk_edge_clearance|102869999|92857998|8f76cc49-caa4-494e-b3e0-deb30a11c6d4|de332e85-4463-40f3-9ec9-58e2653e7f99",
+        "silk_edge_clearance|102870000|70957999|8f76cc49-caa4-494e-b3e0-deb30a11c6d4|b0a6f610-a99a-424d-ba1c-da8c34cf2bfb",
+        "silk_edge_clearance|133838000|123825000|1ce5bc6b-fa4d-435c-820f-e06fa699fb7e|74ebb716-e722-44c7-806e-023f81f5163d",
+        "silk_edge_clearance|134530000|46990000|57cae9e8-28cb-4895-955d-0ea92dc44e32|e45f2b1a-05e6-4486-a10d-694d67f04b8b",
+        "silk_edge_clearance|150602000|123825000|1ce5bc6b-fa4d-435c-820f-e06fa699fb7e|1a28f7de-0f67-40a7-82c2-f9e910e1339e",
+        "silk_edge_clearance|152770000|46989999|57cae9e8-28cb-4895-955d-0ea92dc44e32|698f3118-779c-40c9-8f7c-b7966c9d3b20",
+        "silk_edge_clearance|181610001|107802002|4d6f3b79-acb9-4414-a667-3e36ec6f9673|6b19511d-0070-4c85-9330-50f6e6ede430",
+        "silk_edge_clearance|181610001|69238002|4d6f3b79-acb9-4414-a667-3e36ec6f9673|2249a375-9ce4-4802-83da-55afc62c3c89",
+        "silk_edge_clearance|181610001|86002002|4d6f3b79-acb9-4414-a667-3e36ec6f9673|dd00adaa-e9f4-4af9-acd1-4c4ddbcee535",
+        "silk_edge_clearance|181610001|91038002|4d6f3b79-acb9-4414-a667-3e36ec6f9673|147fd648-f0f5-4dc0-a555-fdc0e7f85d04",
+        "silk_over_copper|155199932|100499932|0876d3c6-df7a-4efc-94e9-763550e45627|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|155732709|103071558|aaf03ffb-3168-4320-81cb-d7e6643b3f87|00000000-0000-0000-0000-000000000000"
+      ],
       "meta": {
         "version": 2
       },
@@ -79,6 +106,7 @@
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
         "hole_near_hole": "error",
+        "holes_co_located": "warning",
         "invalid_outline": "error",
         "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
@@ -474,14 +502,14 @@
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
-        "microvia_diameter": 0.15,
+        "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "PWR",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.6,
-        "via_diameter": 0.3,
-        "via_drill": 0.15,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 6
       }
     ],
@@ -545,6 +573,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
+    "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
